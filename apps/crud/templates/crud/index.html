@@ -1,22 +1,6 @@
 {% extends "crud/base.html" %}
 {% block title %} MAIN {% endblock %}
 {% block content %}
-
-<div class="mediaGroup">
-
-    <div>
-        <h1>💪🏻 오늘도 운동 완료! 🔥</h1>
-        <img class="hello" src="{{url_for('crud.static', filename='hello.png')}}" />
-    </div>
-    <div>
-        <h1> 운동 자세가 궁금하다면 🤔❓</h1>
-        <a class="golink" href="https://weighttraining.guide/">
-            GO Training Guide
-        </a>
-        <img class="hello" />
-    </div>
-</div>
-<hr />
 <h2> 🎧 운동하면서 듣는 신나는 노래 추천 🎶 </h2>
 <div class="recommend">
     <div class="mediaGroup">
@@ -32,11 +16,29 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
         </iframe>
         <hr />
-        <iframe width="560px" height="315px" src="https://www.youtube.com/embed/D8VEhcPeSlc?si=uetTtSv33wUQBG0D"
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ez14wJep4Zw?si=sFrAGQMsfLX8w_D1"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
         </iframe>
+    </div>
+</div>
+<hr />
+<div class="mediaGroup">
+    <div>
+        <h1> 운동 자세가 궁금하다면 🤔❓
+            <p style="text-decoration: underline;">
+                <a class="golink" href="https://weighttraining.guide/">
+                    Go Weight Training Guide
+                </a>
+            </p>
+        </h1>
+        <img class="hello"
+            src="https://cdn-0.weighttraining.guide/wp-content/uploads/2020/04/Weight-Training-Guidelines.png?ezimgfmt=ng%3Awebp%2Fngcb4" />
+    </div>
+    <div>
+        <h1>💪🏻 오늘도 운동 완료! 🔥</h1>
+        <img class="hello" src="{{url_for('crud.static', filename='hello.png')}}" />
     </div>
 </div>
 <hr />
