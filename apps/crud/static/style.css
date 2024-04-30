@@ -6,11 +6,14 @@ body {
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
+
 }
-iframe{
-    
+
+iframe {
+
     margin: 15px auto;
 }
+
 a {
     color: white !important;
     text-decoration: none;
@@ -67,14 +70,17 @@ li {
     width: 100%;
     margin: 0 auto;
 }
-.golink{
+
+.golink {
     color: black !important;
     font-size: 24px;
 }
-.golink:hover{
+
+.golink:hover {
     transition: 2s;
     font-size: 30px;
 }
+
 .mediaGroup {
     display: flex;
     justify-content: center;
@@ -86,7 +92,7 @@ li {
     width: 100%;
     top: 0;
     z-index: 999;
-    background-color: rgb(251, 251, 251);
+    background: linear-gradient(rgba(0, 255, 136, 0.9), rgb(50, 255, 252));
     border-bottom: 1px solid rgb(206, 206, 206);
 }
 
