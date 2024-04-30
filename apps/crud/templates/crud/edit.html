@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('crud.static'), filename='style.css'}}" />
+</head>
+
+<body>
+    <h2>사용자 편집</h2>
+    <form action="{{ url_for('crud.editWorkOut', workout_id = workout.id )}}" method="POST" novalidate="novalidate">
+        {{ form.csrf_token }}
+        <p>
+        <div class="formContainer">
+            <div class="formName">{{ form.check.label }}</div>
+            <br />{{ form.check(placeholder="운동종류") }}
+        </div>
+        {% for error in form.check.errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+        </p>
+        <img id="output" alt=""
+            src="https://cdn-0.weighttraining.guide/wp-content/uploads/2021/03/Barbell-sumo-Romanian-deadlift.png?ezimgfmt=ng%3Awebp%2Fngcb4" />
+        <div class="formContainer">
+            <div class="formName">{{ form.exName.label }}</div>
+            <div class="formValue" id="formValue">{{ form.exName(placeholder="운동이름") }}</div>
+        </div>
+        {% for error in form.exName.errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        <div class="formContainer">
+            <div class="formName">{{ form.weight.label }}</div>
+            <div class="formValue">{{ form.weight(placeholder="중량") }}</div>
+        </div>
+        <span class="error">중량이 없을시 1로 입력</span>
+        {% for error in form.weight.errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        <div class="formContainer">
+            <span class="formName">{{ form.repeat.label }}</span>
+            <div class="formValue">{{ form.repeat(placeholder="반복수") }}</div>
+        </div>
+        {% for error in form.repeat.errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        <div class="formContainer">
+            <div class="formName">{{ form.setRp.label }}</div>
+            <div class="formValue">{{ form.setRp(placeholder="세트수") }}</div>
+        </div>
+        {% for error in form.setRp.errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        <div class="formContainer">
+            <div class="formName">{{ form.text.label }}</div>
+            <div class="formValue">{{ form.text(placeholder="특이사항") }}</div>
+        </div>
+        {% for error in form.text.errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+        </p>
+        <div style="margin-top: 20px;">
+            <p>
+                <input type="submit" value="갱신"/>
+            </p>
+        </div>
+    </form>
+    <script>
+        const selectBox = document.querySelector("#exName");
+        const output = document.querySelector('#output');
+        const selectedOption = selectBox.options[selectBox.selectedIndex];
+        const value = selectedOption.value;
+
+        selectBox.addEventListener('change', () => {
+            const value = selectBox.options[selectBox.selectedIndex].value;
+            // output.textContent = value;
+            console.log(value, output);
+            if (value == "데드리프트") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/03/Barbell-sumo-Romanian-deadlift.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "레그 레이즈") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/06/lying-straight-leg-raise-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "레그 프레스") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Sled-45-degree-Leg-Press-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "벤치 프레스") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/04/Wide-reverse-grip-barbell-bench-press.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "사이드 래터럴 레이즈") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/dumbbell-lateral-raise-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "스쿼트") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/05/barbell-sumo-squat-resized-new.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "풀 업") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/10/Mixed-grip-pull-up.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "푸시업") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/push-up-tall-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+            else if (value == "런지") {
+                output.src = 'https://cdn-0.weighttraining.guide/wp-content/uploads/2022/09/Rear-lunge.png?ezimgfmt=ng%3Awebp%2Fngcb4';
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

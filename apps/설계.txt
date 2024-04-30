@@ -1,0 +1,7 @@
+DB + DB Server + Display Design = Service
+
+0. idea = 오운완 (오늘 한 운동 기록하기)
+1. DB 테이블 사양 정하기
+2. DB 구축 (마이그레이션) 및 서비스 구현 with flask
+2-1. 중간중간 Git에 커밋하기, 최종 완성 후 커밋
+3. 선택사항 -> 로그인 인증기능 할 수 있으면 하셈

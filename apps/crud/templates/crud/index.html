@@ -1,0 +1,16 @@
+{% extends "crud/base.html" %}
+{% block title %} MAINPAGE {% endblock %}
+{% block content %}
+<h2>오늘 운동 기록하기</h2>
+<div>
+    
+        <img src="{{url_for('crud.static', filename='hello.png')}}" style="width: 700px; height: 600px;"/>
+    
+    <button class="btn1">
+        <a href="{{ url_for('crud.createWorkOut') }}">기록하기</a>
+    </button>
+    <button class="viewBtn">
+        <a href="{{ url_for('crud.workoutMemo')}}">기록보기</a>
+    </button>
+</div>
+{% endblock %}

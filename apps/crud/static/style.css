@@ -1,0 +1,131 @@
+body {
+    font-family: "Nanum Gothic", sans-serif;
+    text-align: center;
+} 
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+input[type="submit" i]{
+    margin: 15px;
+    width: 200px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    color:white;
+    background-color: rgb(45, 122, 247);
+    cursor: pointer;
+}
+table, th, td{
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+li{
+    list-style: none;
+    margin-right: 14px;
+}
+
+/* class */
+.container{
+    color: black;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.header{
+    position: sticky;
+    width: 100%;
+    top:0;
+    border-bottom: 1px solid black;
+}
+
+.footer{
+    width: 100%;
+    bottom: 0;
+    position:sticky;
+    border-top: 1px solid black;
+}
+
+.btn1{
+    margin: 15px;
+    border: none;
+    width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgb(45, 122, 247);
+    cursor: pointer;
+}
+
+.btn1:active{
+    color: rgb(159, 159, 159);
+    background-color: rgb(32, 86, 172);
+}
+
+.mainBtn{
+    margin: 15px;
+    border: none;
+    width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgb(0, 227, 11);
+    cursor: pointer;
+}
+
+.mainBtn:active{
+    color: rgb(159, 159, 159);
+    background-color: rgb(67, 175, 72);
+}
+
+.viewBtn{
+    margin: 15px;
+    border: none;
+    width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgb(251, 71, 71);
+    cursor: pointer;
+}
+
+.viewBtn:active{
+    color: rgb(159, 159, 159);
+    background-color: rgb(164, 63, 63);
+}
+.formContainer{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formName{
+    font-weight: bold;
+    width: 65px;
+    text-align: start;
+    margin-right: 15px;
+}
+#check{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formValue input{
+    height: 30px;
+    width: 200px;
+} select{
+    height: 30px;
+    width: 208px;
+}
+.error{
+    color:rgb(255, 65, 65) !important;
+    font-size: 12px;
+}
+#output{
+    width: 500px; 
+    height: 300px;
+    border: 0.5px solid rgb(127, 127, 127);
+}

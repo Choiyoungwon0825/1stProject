@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>완료페이지</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
+</head>
+
+<body>
+    <h2>오늘 기록한 운동</h2>
+    <table>
+        <th>운동명</th>
+        <th>중량</th>
+        <th>반복수</th>
+        <th>세트수</th>
+        <th>
+            총 중량
+            <br />
+            <span style="font-size: 12px; color: red;">
+                (중량 X 반복수X 세트수)
+            </span>
+        </th>
+        <th>운동날짜</th>
+        <tr>
+            <td>{{ exName }}</td>
+            <td>{{ weight }}kg</td>
+            <td>{{ repeat }}회</td>
+            <td>{{ setRp }}회</td>
+            <td>{{ total }}kg<br />
+                <span style="font-size: 12px; color: red;">
+                    ({{ weight }} X {{ repeat }} X {{ setRp }})
+                </span>
+            </td>
+            <td>{{ date }}</td>
+        </tr>
+    </table>
+    <button>
+        <a href="/">메인으로</a>
+    </button>
+</body>
+
+</html>

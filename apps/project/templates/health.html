@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>운동기록하기</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
+</head>
+
+<body>
+    기록페이지
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li class="flash">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <form action="{{url_for('healthComplete')}}" method="POST" novalidate="novalidate">
+        <select name="exName" id="exName">
+            <option selected disabled value=null>=== 운동 선택 ===</option>
+            <option value="벤치프레스">벤치프레스</option>
+            <option value="스쿼트">스쿼트</option>
+            <option value="런지">런지</option>
+            <option value="사이드 래터럴 레이즈">사이드 래터럴 레이즈</option>
+            <option value="풀 업">풀 업</option>
+            <option value="딥스">딥스</option>
+        </select>
+
+        <select name="setRp" id="setRp">
+            <option selected disabled value=null>=== 세트 수 ===</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+        </select>
+        <input type="number" name="weight" placeholder="중량" value="{{ weight }}" />
+        <input type="number" name="repeat" placeholder="반복회수" value="{{ repeat }}" />
+        <textarea></textarea>
+        <input type="submit" value="운동등록" />
+    </form>
+
+</body>
+
+</html>
