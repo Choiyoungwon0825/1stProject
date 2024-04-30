@@ -1,5 +1,5 @@
 {% extends "crud/base.html" %}
-{% block title %} MAINPAGE {% endblock %}
+{% block title %} MEMO {% endblock %}
 {% block content %}
 <h2>운동 기록하기</h2>
 <form action="{{ url_for('crud.createWorkOut') }}" method="POST" novalidate="novalidate">
@@ -69,17 +69,19 @@
         {{ error }}
         {% endfor %}
     </span>
-
-    <div style="margin-top: 20px;">
+    <div class="footer">
         {{ form.submit() }}
-        <button class="viewBtn">
-            <a href="{{ url_for('crud.workoutMemo')}}">기록보기</a>
+
+        <button class="mainBtn" style="width: 300px;">
+            <a href="/crud">
+                메인으로
+            </a>
         </button>
-        <button class="mainBtn">
-            <a href="/crud">메인으로</a>
-        </button>
+        </a>
     </div>
 </form>
+
+
 <script>
     const selectBox = document.querySelector("#exName");
     const output = document.querySelector('#output');

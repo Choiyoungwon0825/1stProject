@@ -1,9 +1,10 @@
 {% extends "crud/base.html" %}
-{% block title %} MAINPAGE {% endblock %}
+{% block title %} HISTORY {% endblock %}
 {% block content %}
 <h2>My Workout History 🏃🏻</h2>
-<table style="margin-top: 60px;">
+<table style="margin-top: 60px; height: 100%;">
     <tr>
+        <th>저장 ID</th>
         <th>운동명</th>
         <th>중량</th>
         <th>반복수</th>
@@ -21,7 +22,7 @@
     </tr>
     {% for workouts in workout %}
     <tr>
-
+        <td>{{ workouts.id }}</td>
         <td style="width: 200px;">{{ workouts.exName }}</td>
         <td>{{ workouts.weight }}kg</td>
         <td>{{ workouts.repeat }}회</td>
@@ -34,19 +35,23 @@
         <td>{{ workouts.createDate }}</td>
         <td>{{ workouts.text }}</td>
         <td style="width: 80px;">
-            <button class="modifyBtn">
-                <a href="{{ url_for('crud.editWorkOut', workout_id=workouts.id)}}">
-                    수정
-                </a>
-            </button>
+            <a href="{{ url_for('crud.editWorkOut', workout_id=workouts.id)}}">
+                <button class="modifyBtn"> 수정</button>
+            </a>
         </td>
     </tr>
     {% endfor %}
 </table>
-<button class="btn1">
-    <a href="{{ url_for('crud.createWorkOut') }}">새 기록</a>
-</button>
-<button class="mainBtn">
-    <a href="/crud">메인으로</a>
-</button>
+<div class="footer">
+    <a href="{{ url_for('crud.createWorkOut') }}">
+        <button class="btn1">
+            새 기록
+        </button>
+    </a>
+    <a href="/crud">
+        <button class="mainBtn">
+            메인으로
+        </button>
+    </a>
+</div>
 {% endblock %}

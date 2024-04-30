@@ -43,4 +43,4 @@ class WorkOutForm(FlaskForm):
     # else :
         #  "유산소운동이당"
     
-    submit = SubmitField("운동기록")
+    submit = SubmitField("기록하기")

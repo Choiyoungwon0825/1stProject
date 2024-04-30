@@ -56,6 +56,12 @@ def editWorkOut(workout_id):
     # WorkOut 모델을 이용하여 사용자를 취득한다.
     workout = WorkOut.query.filter_by(id=workout_id).first()
 
+    form.exName.data = workout.exName
+    form.weight.data = workout.weight
+    form.repeat.data = workout.repeat
+    form.setRp.data = workout.setRp
+    form.text.data = workout.text
+
     # form으로 부터 제출된 경우는 사용자를 갱신하여 운동 기록 화면으로 리다이렉트 한다.
     if form.validate_on_submit():
         workout.exName = form.exName.data

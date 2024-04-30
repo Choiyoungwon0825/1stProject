@@ -8,8 +8,8 @@
     <div class="formContainer">
         <div class="formName">{{ form.check.label }}</div>
         <br />{{ form.check(placeholder="운동종류") }}
-        <p class="info">기능 미구현으로 아무거나 체크</p>
     </div>
+    <p class="info">기능 미구현으로 아무거나 체크</p>
     </p>
     <img id="output" alt="" src="" />
     <div class="formContainer">
@@ -63,8 +63,8 @@
         {{ error }}
         {% endfor %}
     </span>
-    <div style="margin-top: 20px;">
-        <input type="submit" value="갱신" onclick="Modify()" />
+    <div class="footer">
+        <input style="width: 200px;" type="submit" value="갱신" onclick="Modify()" />
         <form action="{{ url_for('crud.deleteWorkOut', workout_id=workout.id)}}" method="POST">
             <button class="viewBtn" style="color: white;" type="submit" onclick="Delete()"
                 formaction="{{ url_for('crud.deleteWorkOut', workout_id=workout.id)}}" method="POST">삭제</button>
@@ -114,19 +114,11 @@
     });
 
     function Modify() {
-        if (confirm("수정하시겠습니까?")) {
-            alert("정상적으로 수정되었습니다.");
-        } else {
-            alert("수정을 취소합니다.");
-        }
+        alert("id : {{ workout.id }}(이)가 정상적으로 수정되었습니다.");
     }
-    
-    function Delete(){
-        if(confirm("삭제하시겠습니까?")){
-            alert("정상적으로 삭제되었습니다.")
-        }else{
-            alert("삭제를 취소합니다.")
-        }
+
+    function Delete() {
+        alert("id : {{ workout.id }}(이)가 정상적으로 삭제되었습니다.")
     }
 
 </script>
