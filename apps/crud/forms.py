@@ -7,7 +7,7 @@ class WorkOutForm(FlaskForm):
         "운동종류",
         choices=[[0, "무산소운동"], [1, "유산소운동"]],
         validators=[
-            DataRequired(message="운동종류를 선택해주세요.")
+            DataRequired(message="운동종류")
         ]
     )
     
@@ -16,7 +16,7 @@ class WorkOutForm(FlaskForm):
         default="데드리프트",
         choices=["데드리프트","런지","레그 레이즈","레그 프레스","벤치 프레스","사이드 래터럴 레이즈","스쿼트","풀 업","푸시업",],
         validators=[
-            DataRequired(message="운동명을 선택해주세요."),
+            DataRequired(message="운동명"),
         ]
     )
     weight = IntegerField(
@@ -27,18 +27,18 @@ class WorkOutForm(FlaskForm):
         "반복수",
         default=1,
         validators=[
-            DataRequired(message="반복 수를 입력해주세요."),
+            DataRequired(message="반복수"),
         ]
     )
     setRp = IntegerField(
         "세트수",
         default=1,
         validators=[
-            DataRequired(message="세트 수를 입력해주세요.")
+            DataRequired(message="세트수")
         ]
     )
     text = StringField(
-        "메모",
+        "특이사항",
     )
     # else :
         #  "유산소운동이당"

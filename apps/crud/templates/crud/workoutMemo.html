@@ -1,47 +1,50 @@
 {% extends "crud/base.html" %}
 {% block title %} MAINPAGE {% endblock %}
 {% block content %}
-<h2>운동 기록임</h2>
-<table>
+<h2>My Workout History 🏃🏻</h2>
+<table style="margin-top: 60px;">
     <tr>
-        <th>ID</th>
         <th>운동명</th>
         <th>중량</th>
         <th>반복수</th>
         <th>세트수</th>
-        <th>
+        <th style="width: 160px;">
             총 중량
             <br />
-            <span style="font-size: 12px; color: red;">
-                (중량 X 반복수X 세트수)
+            <span style="font-size: 10px;">
+                중량 X 반복수 X 세트수
             </span>
         </th>
         <th>운동날짜</th>
         <th>특이사항</th>
+        <th>-</th>
     </tr>
     {% for workouts in workout %}
     <tr>
-        <td>
-            <a href="{{ url_for('crud.createWorkOut', workout_id=workout.id)}}" style="color: black !important;">
-                {{ workouts.id }}
-            </a>
-        </td>
-        <td>{{ workouts.exName }}</td>
+
+        <td style="width: 200px;">{{ workouts.exName }}</td>
         <td>{{ workouts.weight }}kg</td>
         <td>{{ workouts.repeat }}회</td>
         <td>{{ workouts.setRp }}회</td>
-        <td>{{ workouts.weight * workouts.repeat * workouts.setRp }}kg<br />
+        <td style="font-weight: bold; font-size: 16px;">{{ workouts.weight * workouts.repeat * workouts.setRp }}kg<br />
             <span style="font-size: 12px; color: red;">
-                ({{ workouts.weight }} X {{ workouts.repeat }} X {{ workouts.setRp }})
+                {{ workouts.weight }} X {{ workouts.repeat }} X {{ workouts.setRp }}
             </span>
         </td>
         <td>{{ workouts.createDate }}</td>
         <td>{{ workouts.text }}</td>
+        <td style="width: 80px;">
+            <button class="modifyBtn">
+                <a href="{{ url_for('crud.editWorkOut', workout_id=workouts.id)}}">
+                    수정
+                </a>
+            </button>
+        </td>
     </tr>
     {% endfor %}
 </table>
 <button class="btn1">
-    <a href="{{ url_for('crud.createWorkOut') }}">기록하기</a>
+    <a href="{{ url_for('crud.createWorkOut') }}">새 기록</a>
 </button>
 <button class="mainBtn">
     <a href="/crud">메인으로</a>

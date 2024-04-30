@@ -21,7 +21,7 @@ def index():
 @crud.route("/sql")
 def sql():
     db.session.query(WorkOut).all()
-    return "안녕하세요~ 올리버 샘입니다~ 와~ 콘솔보소?"
+    return "안녕하세요~ 콘솔"
 
 @crud.route("/createWorkOut", methods=["GET","POST"])
 def createWorkOut():
@@ -47,15 +47,14 @@ def createWorkOut():
 def workoutMemo():
     workout = WorkOut.query.all()
     # total = WorkOut.repeat * WorkOut.setRp * WorkOut.weight
-    
     return render_template("crud/workoutMemo.html", workout=workout)
 
-@crud.route("workoutMemo/<workout_id>", methods=["GET","POST"], endpoint="endpoint")
+@crud.route("workoutMemo/<workout_id>", methods=["GET","POST"])
 def editWorkOut(workout_id):
     form = WorkOutForm()
 
     # WorkOut 모델을 이용하여 사용자를 취득한다.
-    workout = WorkOut.filter_by(id=workout_id).first()
+    workout = WorkOut.query.filter_by(id=workout_id).first()
 
     # form으로 부터 제출된 경우는 사용자를 갱신하여 운동 기록 화면으로 리다이렉트 한다.
     if form.validate_on_submit():
@@ -64,9 +63,20 @@ def editWorkOut(workout_id):
         workout.repeat = form.repeat.data
         workout.setRp = form.setRp.data
         workout.text = form.text.data
+        
+
         db.session.add(workout)
         db.session.commit()
         return redirect(url_for("crud.workoutMemo"))
     
     # GET의 경우는 HTML 반환
     return render_template("crud/edit.html", workout=workout, form=form)
+
+@crud.route("/workoutMemo/delete/<workout_id>", methods=["POST"])
+def deleteWorkOut(workout_id):
+    print("-------------------")
+    workout = WorkOut.query.filter_by(id=workout_id).first()
+    db.session.delete(workout)
+    db.session.commit()
+
+    return redirect(url_for("crud.workoutMemo"))

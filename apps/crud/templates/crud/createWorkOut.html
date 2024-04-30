@@ -6,12 +6,10 @@
     {{ form.csrf_token }}
     <p>
     <div class="formContainer">
-        <div class="formName">{{ form.check.label }}</div>
+        <div class="formName">{{ form.check.label }}</div><br />
         <br />{{ form.check(placeholder="운동종류") }}
     </div>
-    {% for error in form.check.errors %}
-    <span class="error">{{ error }}</span>
-    {% endfor %}
+    <p class="info">기능 미구현으로 아무거나 체크</p>
     </p>
     <img id="output" alt=""
         src="https://cdn-0.weighttraining.guide/wp-content/uploads/2021/03/Barbell-sumo-Romanian-deadlift.png?ezimgfmt=ng%3Awebp%2Fngcb4" />
@@ -19,47 +17,59 @@
         <div class="formName">{{ form.exName.label }}</div>
         <div class="formValue" id="formValue">{{ form.exName(placeholder="운동이름") }}</div>
     </div>
-    {% for error in form.exName.errors %}
-    <span class="error">{{ error }}</span>
-    {% endfor %}
     </p>
     <p>
     <div class="formContainer">
         <div class="formName">{{ form.weight.label }}</div>
         <div class="formValue">{{ form.weight(placeholder="중량") }}</div>
     </div>
-    <span class="error">중량이 없을시 1로 입력</span>
-    {% for error in form.weight.errors %}
-    <span class="error">{{ error }}</span>
-    {% endfor %}
+    <p class="info">중량이 없을시 1로 입력</p>
     </p>
     <p>
     <div class="formContainer">
         <span class="formName">{{ form.repeat.label }}</span>
         <div class="formValue">{{ form.repeat(placeholder="반복수") }}</div>
+
     </div>
-    {% for error in form.repeat.errors %}
-    <span class="error">{{ error }}</span>
-    {% endfor %}
     </p>
     <p>
     <div class="formContainer">
         <div class="formName">{{ form.setRp.label }}</div>
         <div class="formValue">{{ form.setRp(placeholder="세트수") }}</div>
+
+
     </div>
-    {% for error in form.setRp.errors %}
-    <span class="error">{{ error }}</span>
-    {% endfor %}
     </p>
     <p>
     <div class="formContainer">
         <div class="formName">{{ form.text.label }}</div>
         <div class="formValue">{{ form.text(placeholder="특이사항") }}</div>
+
+
     </div>
-    {% for error in form.text.errors %}
-    <span class="error">{{ error }}</span>
-    {% endfor %}
     </p>
+    <span class="error">
+        {% for error in form.check.errors %}
+        필수 확인 사항 :
+        {{ error }}
+        {% endfor %}
+        {% for error in form.exName.errors %}
+        {{ error }}
+        {% endfor %}
+        {% for error in form.weight.errors %}
+        {{ error }}
+        {% endfor %}
+        {% for error in form.repeat.errors %}
+        {{ error }}
+        {% endfor %}
+        {% for error in form.setRp.errors %}
+        {{ error }}
+        {% endfor %}
+        {% for error in form.text.errors %}
+        {{ error }}
+        {% endfor %}
+    </span>
+
     <div style="margin-top: 20px;">
         {{ form.submit() }}
         <button class="viewBtn">
