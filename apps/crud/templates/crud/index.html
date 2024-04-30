@@ -37,7 +37,13 @@
             src="https://cdn-0.weighttraining.guide/wp-content/uploads/2020/04/Weight-Training-Guidelines.png?ezimgfmt=ng%3Awebp%2Fngcb4" />
     </div>
     <div>
-        <h1>💪🏻 오늘도 운동 완료! 🔥</h1>
+        <h1>💪🏻 오늘도 운동 완료! 🔥<br/>
+            <p style="text-decoration: underline;">
+                <a class="golink" href="{{ url_for('crud.createWorkOut') }}">
+                    기록하러가기!
+                </a>
+            </p>
+        </h1>
         <img class="hello" src="{{url_for('crud.static', filename='hello.png')}}" />
     </div>
 </div>

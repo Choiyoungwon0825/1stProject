@@ -92,7 +92,7 @@ li {
     width: 100%;
     top: 0;
     z-index: 999;
-    background: linear-gradient(rgba(0, 255, 136, 0.9), rgb(50, 255, 252));
+    background: linear-gradient(rgba(0, 255, 136, 0.85), rgb(50, 255, 252));
     border-bottom: 1px solid rgb(206, 206, 206);
 }
 
